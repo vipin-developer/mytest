@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vipin APP';
+ public display="";
+onClick(String){
+  this.display=String;
+}
 }

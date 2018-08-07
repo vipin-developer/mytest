@@ -1,0 +1,73 @@
+<div class="container">
+  
+  <h1>Sign-up Form</h1>
+  <form #signup="ngForm" (ngSubmit)="onSubmit" >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required #name="ngModel" minlength="4" >
+      
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger">
+    <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors.minlength">
+      Name must be at least 4 characters long.
+    </div>
+  </div>
+  </div>
+   
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control"  id="username" [(ngModel)]="model.username" minlength="5" #username="ngModel" maxlength="8"  name="username" required >
+      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+        <div *ngIf="username.errors.required">username is required</div>
+        <div *ngIf="username.errors.minlength">username should be of minimum 5 characters</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="model.email" name="email" required #email="ngModel" >
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" class="form-control" id="phone" [(ngModel)]="model.phone" name="phone" required #phone="ngModel" minlength="10" maxlength="12" >
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+          <div *ngIf="phone.errors.required">phone is required</div>
+      <div *ngIf="phone.errors.minlength">invalid phone number</div>
+    
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="model.password" required name="password" #pass="ngModel" minlength="8" maxlength="12" >
+      <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert alert-danger">
+          <div *ngIf="pass.errors.required">pasword is required</div>
+      <div *ngIf="pass.errors.minlength">too short</div>
+  
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <input type="radio"  id="male" name="gender" [(ngModel)]="model.gender" value="male" >male
+      <input type="radio"  id="female" name="gender" [(ngModel)]="model.gender" value="female" >female
+    </div>
+    <div class="form-group">
+      <label for="State">State</label>
+      <select  class="form-control" id="state" [(ngModel)]="model.state" name="state" required #st="ngModel" >
+        <option *ngFor="let st of state" [value]="st">{{st}}</option>
+        </select>
+        <div *ngIf="st.invalid && (st.dirty || st.touched)" class="alert alert-danger">
+            <div *ngIf="st.errors.required">This field is required</div>
+       
+          </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!signup.valid" >Submit</button>
+
+  </form>
+  {{model.name}} {{model.username}} {{model.email}} {{model.phone}} {{model.password}} {{model.gender}} {{model.state}}
+</div>
