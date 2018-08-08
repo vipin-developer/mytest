@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { users } from '../user';
 import { FormGroup, FormControl, FormsModule } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-formsv',
@@ -11,12 +12,12 @@ export class FormsvComponent implements OnInit {
   state=['jharkhand','karnataka','tamilnadu','bihar','odisha'];
   model:any={};
   sub=false;
-onSubmit(){
-  this.sub=true;
-  window.alert("you have entered"+" "+this.model.name+" "+this.model.username+" "+this.model.phone);
+onSubmit(model){
+ this.router.navigate(['/Login',{name:this.model.name,password:this.model.password}])
 }
 
-  constructor() { }
+
+  constructor( private router:Router) { }
 
   ngOnInit() {
   }

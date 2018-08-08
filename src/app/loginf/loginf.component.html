@@ -1,0 +1,33 @@
+
+<br>
+<div class="container" >
+  <div class="well well-sm">
+
+<h1>Login Form</h1>
+<form #signup="ngForm" (ngSubmit)="onSubmit" >
+<div class="form-group">
+  <label for="username">Username</label>
+  <input type="text" class="form-control"  id="username2" [(ngModel)]="model.username" minlength="5" #username="ngModel" maxlength="8"  name="username" required >
+  <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+    <div *ngIf="username.errors.required">username is required</div>
+    <div *ngIf="username.errors.minlength">username should be of minimum 5 characters</div>
+  </div>
+</div>
+<div class="form-group">
+  <label for="password">Password</label>
+  <input type="password" class="form-control" id="password2" [(ngModel)]="model.password" required name="password" #pass="ngModel" minlength="8" maxlength="12" >
+  <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="alert alert-danger">
+      <div *ngIf="pass.errors.required">pasword is required</div>
+  <div *ngIf="pass.errors.minlength">too short</div>
+
+    </div>
+</div>
+<button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!signup.valid" >Submit</button>
+</form>
+</div>
+</div>
+<div>
+  {{namelogin}}
+  {{passlogin}}
+   
+</div>

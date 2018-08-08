@@ -1,4 +1,7 @@
+<br>
+
 <div class="container">
+    <div class="well ">
   
   <h1>Sign-up Form</h1>
   <form #signup="ngForm" (ngSubmit)="onSubmit" >
@@ -35,10 +38,11 @@
     </div>
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input type="tel" class="form-control" id="phone" [(ngModel)]="model.phone" name="phone" required #phone="ngModel" minlength="10" maxlength="12" >
+      <input type="tel"  class="form-control" id="phone" [(ngModel)]="model.phone" name="phone" required #phone="ngModel" minlength="10" maxlength="12" >
       <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
           <div *ngIf="phone.errors.required">phone is required</div>
       <div *ngIf="phone.errors.minlength">invalid phone number</div>
+    
     
         </div>
     </div>
@@ -52,9 +56,9 @@
         </div>
     </div>
     <div class="form-group">
-      <label for="gender">Gender</label>
-      <input type="radio"  id="male" name="gender" [(ngModel)]="model.gender" value="male" >male
-      <input type="radio"  id="female" name="gender" [(ngModel)]="model.gender" value="female" >female
+      <label for="gender">Gender<sup>*optional</sup></label><br>
+      <input type="radio"  id="male" name="gender" [(ngModel)]="model.gender" value="male" >  male
+      <input type="radio"  id="female" name="gender" [(ngModel)]="model.gender" value="female" > female
     </div>
     <div class="form-group">
       <label for="State">State</label>
@@ -67,8 +71,10 @@
           </div>
     </div>
 
-    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!signup.valid" >Submit</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit(model)" [disabled]="!signup.valid" >Submit</button>
 
   </form>
   {{model.name}} {{model.username}} {{model.email}} {{model.phone}} {{model.password}} {{model.gender}} {{model.state}}
 </div>
+</div>
+
