@@ -13,7 +13,7 @@ export class FormsvComponent implements OnInit {
   model:any={};
   sub=false;
 onSubmit(model){
- this.router.navigate(['/Login',{name:this.model.name,password:this.model.password}])
+ this.router.navigate(['/Login',{username:this.model.username,password:this.model.password}])
 }
 
 
