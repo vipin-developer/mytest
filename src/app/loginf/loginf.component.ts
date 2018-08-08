@@ -15,11 +15,11 @@ export class LoginfComponent implements OnInit {
     this.sub=true;
     if(this.model.username==this.namelogin && this.model.password==this.passlogin){
 
-      window.alert("yes");
+      this.router.navigate(['/dash',{username:this.model.username,password:this.model.password}])
     }else{
-      window.alert("not");
+      window.alert("username or password is incorrect");
     }
-    this.router.navigate(['/dash',{username:this.model.username,password:this.model.password}])
+    
   }
 public myhero=[];
 public namelogin;

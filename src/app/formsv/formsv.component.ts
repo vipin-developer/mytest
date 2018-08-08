@@ -14,6 +14,7 @@ export class FormsvComponent implements OnInit {
   sub=false;
 onSubmit(model){
  this.router.navigate(['/Login',{username:this.model.username,password:this.model.password}])
+ console.log(model.value )
 }
 
 

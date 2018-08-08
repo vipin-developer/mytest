@@ -71,10 +71,10 @@
           </div>
     </div>
 
-    <button type="submit" class="btn btn-success" (click)="onSubmit(model)" [disabled]="!signup.valid" >Submit</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit(signup)" [disabled]="!signup.valid" >Submit</button>
 
   </form>
-  {{model.name}} {{model.username}} {{model.email}} {{model.phone}} {{model.password}} {{model.gender}} {{model.state}}
+  {{signup.value | json}} {{model.username}} {{model.email}} {{model.phone}} {{model.password}} {{model.gender}} {{model.state}}
 </div>
 </div>
 

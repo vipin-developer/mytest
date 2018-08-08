@@ -1,12 +1,14 @@
-<h1 style="padding-left: 380pt"><u>Signup and Login Page</u></h1>
-<br>
-<div row>
-<div col-sm-8>
-    <nav style="padding-left: 450pt" >
-        <button class="btn" routerLink="/Signup" routerLinkActive="active">Signup</button>
-        <button class="btn" routerLink="/Login" routerLinkActive="active">Login</button>
-        <button class="btn" routerLink="/dash" routerLinkActive="active">Dashboard</button>
-    </nav>
+<body>
+
+        <ul>
+            <li><a routerLink="/Signup" routerLinkActive="active">Home</a></li>
+            <li><a routerLink="/Signup" routerLinkActive="active">Signup</a></li>
+            <li><a  routerLink="/Login" routerLinkActive="active">Login</a></li>
+            <li><a routerLink="/dash" routerLinkActive="active">Dashboard</a></li>
+          </ul>
+    
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
     <router-outlet></router-outlet>
 </div>
-</div>
+</body>
